@@ -14,7 +14,7 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.8",
@@ -70,5 +70,5 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
   },
-  "homepage": "http://nguyenconguan27.github.io/shopee-clone-react-ts"
+  "homepage": "http://nguyenconguan27.github.io/shopee-clone-react-ts/"
 }
