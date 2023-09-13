@@ -5,6 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/shoppe-clone-ts',
   plugins: [react(), visualizer()],
   server: {
     port: 3000
