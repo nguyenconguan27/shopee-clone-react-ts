@@ -15,6 +15,8 @@ import omit from 'lodash/omit'
 import { QueryConfig } from 'src/hooks/useQueryConfig'
 import { InputNumber } from 'src/components/InputNumber'
 
+import { useTranslation } from 'react-i18next'
+
 interface Props {
   queryConfig: QueryConfig
   categories: Category[]
@@ -23,6 +25,7 @@ interface Props {
 type FormData = NoUndefindField<PriceFilterSchema>
 
 export default function AsideFilter({ queryConfig, categories }: Props) {
+  const { t } = useTranslation('home')
   const { category } = queryConfig
   const {
     control,
@@ -68,7 +71,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             </g>
           </g>
         </svg>
-        <span>Tất Cả Danh Mục</span>
+        <span>{t('aside filter.all categories')}</span>
       </Link>
       <div className='bg-gray-300 h-[1px] my-4' />
       <ul className='pl-2'>
@@ -115,12 +118,12 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             />
           </g>
         </svg>
-        <span>Bộ Lọc Tìm Kiếm</span>
+        <span>{t('aside filter.fileter')}</span>
       </Link>
       <div className='bg-gray-300 h-[1px] my-4' />
 
       <div className='my-4'>
-        <div>Khoảng giá</div>
+        <div>{t('aside filter.price range')}</div>
         <form className='mt-2 flex-col' onSubmit={onSubmit}>
           <div className='flex items-start'>
             <Controller
@@ -131,7 +134,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   type='text'
                   className='grow'
                   classNameError='hidden'
-                  placeholder='đ Từ'
+                  placeholder={`đ ${t('aside filter.from')}`}
                   classNameInput='p-1 w-full outline-none border border-gray-300 rounded-sm focus:shadow-sm'
                   onChange={(event) => {
                     arg.field.onChange(event)
@@ -151,7 +154,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   type='text'
                   className='grow'
                   classNameError='hidden'
-                  placeholder='đ Đến'
+                  placeholder={`đ ${t('aside filter.to')}`}
                   classNameInput='p-1 w-full outline-none border border-gray-300 rounded-sm focus:shadow-sm'
                   onChange={(event) => {
                     arg.field.onChange(event)
@@ -164,14 +167,16 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             />
           </div>
           <div className='mt-2 text-red-600 min-h-[1.25rem] text-sm text-center'>{errors.price_min?.message}</div>
-          <Button className='bg-orange hover:opacity-90 text-white px-8 py-2 w-full uppercase'>Áp dụng</Button>
+          <Button className='bg-orange hover:opacity-90 text-white px-8 py-2 w-full uppercase'>
+            {t('aside filter.apply')}
+          </Button>
         </form>
       </div>
       <div className='bg-gray-300 h-[1px] my-4' />
-      <div className='text-sm'>Đánh giá</div>
+      <div className='text-sm'>{t('aside filter.rate')}</div>
       <RatingStar queryConfig={queryConfig} />
       <Button className='bg-orange hover:opacity-90 text-white px-8 py-2 w-full uppercase' onClick={removeFilter}>
-        xóa tất cả
+        {t('aside filter.delete all')}
       </Button>
     </div>
   )

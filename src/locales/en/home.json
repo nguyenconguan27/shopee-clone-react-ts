@@ -1,0 +1,20 @@
+{
+    "aside filter": {
+        "all categories": "All categories",
+        "fileter": "Filter",
+        "apply": "APPLY",
+        "from": "From",
+        "to": "To",
+        "price range": "Price range",
+        "rate": "Rate",
+        "upto": "Upto",
+        "delete all": "DELETE ALL",
+        "arrange": "Arrange about",
+        "popular": "Popular",
+        "new": "New",
+        "best seller": "Best seller",
+        "price": "Price",
+        "signup": "signup",
+        "login": "login"
+    }
+}

@@ -12,8 +12,10 @@ import QuantityController from 'src/components/QuantityController'
 import purchaseApi from 'src/apis/purchase.api'
 import { purchasesStatus } from 'src/constants/purchase'
 import path from 'src/constants/path'
+import { useTranslation } from 'react-i18next'
 
 export default function ProductDetail() {
+  const { t } = useTranslation('product')
   const [buyCount, setBuyCount] = useState(1)
   const [activeImage, setActiveImage] = useState('')
   const { nameId } = useParams()
@@ -196,7 +198,7 @@ export default function ProductDetail() {
             </div>
             <div className='pl-5 border-l-3 border-l-gray-300'>
               <span className='mr-1'>{formatNumberToSocialStyle(product.sold)}</span>
-              <span className='text-sm text-gray-500'>Đã bán</span>
+              <span className='text-sm text-gray-500'>{t('product.sold')}</span>
             </div>
           </div>
           <div className='mt-8 mx-4 flex items-center'>
@@ -204,11 +206,11 @@ export default function ProductDetail() {
             <span className='text-orange ml-4'>₫</span>
             <span className='text-orange text-2xl'>{formatCurrency(product.price)}</span>
             <div className='rounded-sm bg-orange text-white uppercase text-sm ml-2 px-1 py-1'>
-              {perSale(product.price_before_discount, product.price)} Giảm
+              {perSale(product.price_before_discount, product.price)} {t('product.discount')}
             </div>
           </div>
           <div className='flex mt-6 items-center'>
-            <span className='text-gray-400 capitalize text-sm'>số lượng</span>
+            <span className='text-gray-400 capitalize text-sm'>{t('product.quantity')}</span>
             <QuantityController
               classNameWrapper='flex ml-5'
               value={buyCount}
@@ -218,7 +220,9 @@ export default function ProductDetail() {
               increase={(value) => handleChangeQuantity(value)}
               onFocusOut={(value) => handleFocusOut(value)}
             />
-            <span className='text-gray-400 capitalize text-xs ml-2'>{product.quantity} sản phẩm có sẵn</span>
+            <span className='text-gray-400 capitalize text-xs ml-2'>
+              {product.quantity} {t('product.avalible')}
+            </span>
           </div>
           <div className='flex mt-6'>
             <button
@@ -248,19 +252,19 @@ export default function ProductDetail() {
                   <line fill='none' strokeLinecap='round' strokeMiterlimit={10} x1={9} x2={9} y1='8.5' y2='5.5' />
                 </g>
               </svg>
-              Thêm vào giỏ hàng
+              {t('product.add to cart')}
             </button>
             <button
               className=' ml-5 bg-orange rounded-sm text-white capitalize px-2 py-2 hover:bg-orange/90'
               onClick={handleByNow}
             >
-              mua ngay
+              {t('product.buy now')}
             </button>
           </div>
         </div>
       </div>
       <div className='container bg-white text-xs leading-loose mt-3 shadow-sm'>
-        <span className='capitalize text-xl'>chi tiết sản phẩm</span>
+        <span className='capitalize text-xl'>{t('product.product detail')}</span>
         <div
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(product.description)
@@ -270,7 +274,7 @@ export default function ProductDetail() {
       {productsData && (
         <div className='mt-8'>
           <div className='container bg-gray-50 shadow pt-3'>
-            <span className='uppercase mt-4 text-gray-400'>có thể bạn cũng thích</span>
+            <span className='uppercase mt-4 text-gray-400'>{t('product.maybe you can like')}</span>
             <div className='grid sm:grid-cols-3 md:grid-cols-4 lg:gird-cols-5 xl:grid-cols-6 gap-4'>
               {productsData.data.data.products.map((product) => (
                 <div className='col-span-1' key={product._id}>

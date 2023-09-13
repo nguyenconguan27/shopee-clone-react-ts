@@ -1,0 +1,20 @@
+{
+    "aside filter": {
+        "all categories": "Tất cả danh mục",
+        "fileter": "bộ lọc tìm kiếm",
+        "apply": "áp dụng",
+        "from": "từ",
+        "to": "đến",
+        "price range": "khoảng giá",
+        "rate": "đánh giá",
+        "upto": "trở lên",
+        "delete all": "xoá tất cả",
+        "arrange": "sắp xếp theo",
+        "popular": "phổ biến",
+        "new": "mới nhất",
+        "best seller": "bán chạy",
+        "price": "giá",
+        "signup": "đăng ký",
+        "login": "đăng nhập"
+    }
+}

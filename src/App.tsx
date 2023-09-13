@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useContext, useEffect } from 'react'
 import { LocalSotrageEventTarget } from './utils/auth'
 import { AppContext } from './contexts/app.context'
+import ErrorBoundary from './components/ErrorBoundary'
 
 function App() {
   const routeElements = useRouteElements()
@@ -15,10 +16,10 @@ function App() {
     }
   }, [reset])
   return (
-    <div>
+    <ErrorBoundary>
       {routeElements}
       <ToastContainer />
-    </div>
+    </ErrorBoundary>
   )
 }
 

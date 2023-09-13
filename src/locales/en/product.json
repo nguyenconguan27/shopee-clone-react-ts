@@ -1,0 +1,12 @@
+{
+    "product" : {
+        "sold": "sold",
+        "discount": "discount",
+        "quantity": "quantity",
+        "add to cart": "add to cart",
+        "avalible": "avalible",
+        "buy now": "buy now",
+        "product detail": "product detail",
+        "maybe you can like": "maybe you can like"
+    }
+}

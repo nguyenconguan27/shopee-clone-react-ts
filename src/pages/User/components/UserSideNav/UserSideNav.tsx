@@ -4,8 +4,10 @@ import { Link, NavLink } from 'react-router-dom'
 import path from 'src/constants/path'
 import { AppContext } from 'src/contexts/app.context'
 import { getAvatarURL } from 'src/utils/utils'
+import { useTranslation } from 'react-i18next'
 
 export default function UserSideNav() {
+  const { t } = useTranslation('profile')
   const { profile } = useContext(AppContext)
   return (
     <div>
@@ -31,7 +33,7 @@ export default function UserSideNav() {
                 fillRule='evenodd'
               />
             </svg>
-            <span>sử hồ sơ</span>
+            <span>{t('profile.edit profile')}</span>
           </Link>
         </div>
       </div>
@@ -49,7 +51,7 @@ export default function UserSideNav() {
             <div className='h-6 w-6'>
               <img src='https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4' alt='' className='h-full w-full' />
             </div>
-            <span className='capitalize ml-2'>tài khoản của tôi</span>
+            <span className='capitalize ml-2'>{t('profile.my account')}</span>
           </NavLink>
           <NavLink
             to={path.changePassword}
@@ -63,7 +65,7 @@ export default function UserSideNav() {
             <div className='h-6 w-6'>
               <img src='https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4' alt='' className='h-full w-full' />
             </div>
-            <span className='capitalize ml-2'>đổi mật khẩu</span>
+            <span className='capitalize ml-2'>{t('profile.change password')}</span>
           </NavLink>
           <NavLink
             to={path.historyPurchase}
@@ -90,7 +92,7 @@ export default function UserSideNav() {
                 />
               </svg>
             </div>
-            <span className='capitalize ml-2'>đơn mua</span>
+            <span className='capitalize ml-2'>{t('profile.bill')}</span>
           </NavLink>
         </div>
       </div>

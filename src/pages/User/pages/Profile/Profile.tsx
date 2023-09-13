@@ -14,6 +14,7 @@ import { saveProfileToLS } from 'src/utils/auth'
 import { getAvatarURL, isAxiosUnprocessableEntity } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import InputFile from 'src/components/InputFile'
+import { useTranslation } from 'react-i18next'
 
 function Info() {
   const methods = useFormContext<FormData>()
@@ -81,6 +82,7 @@ type FormError = Omit<FormData, 'date_of_birth'> & {
 }
 type FormData = Pick<UserSchema, 'name' | 'address' | 'phone' | 'date_of_birth' | 'avatar'>
 export default function Profile() {
+  const { t } = useTranslation('profile')
   const { setProfile } = useContext(AppContext)
   const [file, setFile] = useState<File>()
   const previewImage = useMemo(() => {
@@ -157,8 +159,8 @@ export default function Profile() {
   return (
     <div className='bg-white shadow-sm rounded-sm p-5 text-sm'>
       <div className='border-b border-gray-200 pb-6 pl-3'>
-        <span className='capitalize block'>hồ sơ của tôi</span>
-        <span className='text-gray-600'>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+        <span className='capitalize block'>{t('profile.my profile')}</span>
+        <span className='text-gray-600'>{t('profile.manage profile')}</span>
       </div>
       <FormProvider {...methods}>
         <form onSubmit={onSubmit} className='pt-3 flex flex-col flex-col-reverse md:flex-row md:ml-10'>

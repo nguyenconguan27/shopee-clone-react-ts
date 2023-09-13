@@ -1,0 +1,12 @@
+{
+    "product" : {
+        "sold": "đã bán",
+        "discount": "giảm",
+        "quantity": "số lương",
+        "add to cart": "thêm vào giỏ hàng",
+        "avalible": "sản phẩm có sẵn",
+        "buy now": "mua ngay",
+        "product detail": "chỉ tiết sản phẩm",
+        "maybe you can like": "có thể bạn cũng thích"
+    }
+}
