@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AppProvider } from './contexts/app.context.tsx'
 import 'src/i18n/i18n'
+import { HelmetProvider } from 'react-helmet-async'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,10 +23,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <AppProvider>
-          <App />
-        </AppProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
+        <HelmetProvider>
+          <AppProvider>
+            <App />
+          </AppProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </HelmetProvider>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>

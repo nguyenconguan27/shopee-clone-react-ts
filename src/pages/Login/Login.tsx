@@ -11,6 +11,7 @@ import { isAxiosUnprocessableEntity } from 'src/utils/utils'
 import { AppContext } from 'src/contexts/app.context'
 import Button from 'src/components/Button'
 import path from 'src/constants/path'
+import { Helmet } from 'react-helmet-async'
 
 export default function Login() {
   const { setIsAuthenticated, setProfile } = useContext(AppContext)
@@ -55,6 +56,10 @@ export default function Login() {
 
   return (
     <div className='bg-orange'>
+      <Helmet>
+        <title>Đăng nhập | Shopee</title>
+        <meta name='description' content='Đăng nhập' />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 py-10 lg:grid-cols-7 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-5'>

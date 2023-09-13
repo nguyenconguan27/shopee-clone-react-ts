@@ -9,6 +9,7 @@ import { isAxiosUnprocessableEntity } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import omit from 'lodash/omit'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { Helmet } from 'react-helmet-async'
 
 type FormData = Pick<UserSchema, 'password' | 'confirm_password' | 'new_password'>
 
@@ -47,6 +48,10 @@ export default function ChangePassword() {
   })
   return (
     <div className='bg-white shadow-sm rounded-sm p-5 text-sm'>
+      <Helmet>
+        <title>Đổi mật khẩu</title>
+        <meta name='description' content='Đổi mật khẩu' />
+      </Helmet>
       <div className='border-b border-gray-200 pb-6 pl-3'>
         <span className='capitalize block'>đổi mật khẩu</span>
         <span className='text-gray-600'>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>

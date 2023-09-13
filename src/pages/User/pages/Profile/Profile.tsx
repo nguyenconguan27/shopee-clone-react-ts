@@ -15,6 +15,7 @@ import { getAvatarURL, isAxiosUnprocessableEntity } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import InputFile from 'src/components/InputFile'
 import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
 
 function Info() {
   const methods = useFormContext<FormData>()
@@ -158,6 +159,10 @@ export default function Profile() {
   }
   return (
     <div className='bg-white shadow-sm rounded-sm p-5 text-sm'>
+      <Helmet>
+        <title>Hồ sơ của tôi | Shopee</title>
+        <meta name='description' content='Hồ sơ của tôi' />
+      </Helmet>
       <div className='border-b border-gray-200 pb-6 pl-3'>
         <span className='capitalize block'>{t('profile.my profile')}</span>
         <span className='text-gray-600'>{t('profile.manage profile')}</span>

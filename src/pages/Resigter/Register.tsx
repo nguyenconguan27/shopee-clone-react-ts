@@ -13,6 +13,7 @@ import { useContext } from 'react'
 import { AppContext } from 'src/contexts/app.context'
 import Button from 'src/components/Button'
 import path from 'src/constants/path'
+import { Helmet } from 'react-helmet-async'
 
 // interface FormData {
 //   email: string
@@ -81,6 +82,10 @@ export default function Register() {
   // console.log(errors)
   return (
     <div className='bg-orange h-700 max-h-700'>
+      <Helmet>
+        <title>Đăng ký | Shopee</title>
+        <meta name='description' content='Đăng ký' />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 py-10 lg:grid-cols-7 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-5'>

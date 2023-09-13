@@ -9,6 +9,7 @@ import { ProductListConfig } from 'src/types/product.type'
 import categoryApi from 'src/apis/category.api'
 import useQueryConfig from 'src/hooks/useQueryConfig'
 import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export default function ProductList() {
   // console.log(searchParams)
@@ -29,6 +30,10 @@ export default function ProductList() {
   })
   return (
     <div className='bg-gray-100 pt-6'>
+      <Helmet>
+        <title>Shopee clone</title>
+        <meta name='description' content='Trang chủ' />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-12 gap-4'>
           <div className='col-span-2'>

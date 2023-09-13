@@ -1,4 +1,3 @@
-import { type } from 'os'
 import { InputHTMLAttributes, useState } from 'react'
 import { UseFormRegister, RegisterOptions } from 'react-hook-form'
 
